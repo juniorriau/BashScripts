@@ -114,5 +114,5 @@ character_set_server=utf8
 delayed_insert_timeout=60
 interactive_timeout=240
 wait_timeout=360
-connect_timeout=360
+connect_timeout=360" > /etc/my.cnf
 "
