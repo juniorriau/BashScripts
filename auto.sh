@@ -28,7 +28,6 @@ do
     replace "upload_max_filesize = 2M" "upload_max_filesize = 128M" -- $f
     echo "convert date time"
     replace 'America/Chicago' 'Asia/Jakarta' -- $f
-    replace "date.timezone = " "date.timezone = Asia/Jakarta" -- $f
     replace "UTC" "Asia/Jakarta" -- $f
     echo "convert disable function"
     replace "disable_functions =" "disable_functions =mail,show_source,symlink,system,shell_eval,define_syslog_variables,syslog,openlog,closelog,passthru,ocinumcols,ini_alter,leak,listen,chgrp,apache_note,apache_setenv,debugger_on,debugger_off,ftp_dl,dll,ftp,myshellsocket_bind,popen,fpassthru,pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_pcntl_getpriority,pcntl_setpriority,str_rot13" -- $f
