@@ -77,48 +77,19 @@ cagefsctl --init
 echo "Enabling all mode..."
 cagefsctl --enable-all
 
-echo "Change mysql configuration"
-echo "
-[mysqld]
-default-storage-engine=MyISAM
-local-infile=0
-max_allowed_packet=268435456
-max_connections=5000
-max_user_connections=50
-event_scheduler=Off
+echo "Installing ClamAV..."
+/scripts/update_local_rpm_versions --edit target_settings.clamav installed
+/scripts/check_cpanel_rpms --fix --targets=clamav
 
-##InnoDB
-innodb_file_per_table=1
-open_files_limit=50000
-innodb_buffer_pool_size = 32
+echo "Installing Let's Encrypt SSL..."
+/scripts/install_lets_encrypt_autossl_provider
 
-##Cache
-thread_cache_size = 64
-query_cache_limit=2M
-query_cache_size=4M
-table_open_cache=64
-table-definition-cache=64
+echo "Installing SQLite3..."
+/scripts/installsqlite3
 
-##Temp Tables
-tmp_table_size=4M
-max_heap_table_size=8M
+echo "Installing PostgreSQL..."
+/scripts/installpostgres
 
-## Per-thread Buffers
-sort-buffer-size=4M
-read_buffer_size=4M
-read_rnd_buffer_size=4M
-join_buffer_size=4M
-thread_stack=256K
-
-##MyISAM
-key_buffer=16M
-key_buffer_size=16M
-myisam-sort-buffer-size=16M
-
-collation_server=utf8_unicode_ci
-character_set_server=utf8
-delayed_insert_timeout=60
-interactive_timeout=240
-wait_timeout=360
-connect_timeout=360" > /etc/my.cnf
+echo "Securing tmp..."
+echo y | /scripts/securetmp
 
