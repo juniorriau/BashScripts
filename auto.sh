@@ -1,4 +1,11 @@
 #!/bin/sh
+echo "install package depedencies ..."
+yum update -y
+yum install perl wget -y
+echo "Downloading cPanel Installer..."
+cd /home
+wget -N httpupdate.cpanel.net/latest
+sh latest
 echo "Getting cldeploy..."
 wget https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
 echo "Converting CentOS to CloudLinux..."
