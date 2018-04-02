@@ -1,5 +1,5 @@
 # HostingAutoInstaller
-Bash Script for Software Package for Share Hosting Server
+Bash Script for Installing Software Package for Share Hosting Server
 * Install cPanel WHM
 * Convert CentOS to CloudLinux
 * Install CageFS LVEManager Alt-PHP
