@@ -10,3 +10,7 @@ Incoming Fitur
 * Softaculous Installer
 * CSF CMQ CSE Installer
 * 
+
+# InnoDBRecover-backup
+Bash Script for recovery innodb databases from cpanel full backup
+Usage : #InnoDBRecover-backup.sh [username]
